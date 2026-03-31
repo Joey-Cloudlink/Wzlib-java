@@ -24,6 +24,32 @@
 - **所有屬性類型**：Null、Short、Int、Long、Float、Double、String、SubProperty、Canvas、Vector、Convex、UOL、Sound、RawData、Lua、Video
 - **零外部依賴**（純 JDK 11+）
 
+## API 一覽表
+
+| 你想拿的 | 怎麼拿 | 回傳型別 |
+|---------|--------|---------|
+| 圖片 | `canvas.getPngProperty().getImage(false)` | `BufferedImage` |
+| 音效 | `sound.getSoundBytes(true)` | `byte[]`（MP3/PCM） |
+| 整數值 | `((WzIntProperty) prop).getInt()` | `int` |
+| 字串 | `((WzStringProperty) prop).getString()` | `String` |
+| 短整數 | `((WzShortProperty) prop).getShort()` | `short` |
+| 長整數 | `((WzLongProperty) prop).getLong()` | `long` |
+| 浮點數 | `((WzFloatProperty) prop).getFloat()` | `float` |
+| 倍精度 | `((WzDoubleProperty) prop).getDouble()` | `double` |
+| 座標 | `vec.getX().getInt()`, `vec.getY().getInt()` | `int, int` |
+| UOL 連結 | `((WzUOLProperty) prop).getUOL()` | `String`（路徑） |
+| Lua 腳本 | `((WzLuaProperty) prop).getString()` | `String`（解密後原始碼） |
+| 原始資料 | `rawData.getBytes(true)` | `byte[]` |
+| 影片資料 | `video.getBytes(true)` | `byte[]` |
+| 壓縮圖片 | `png.getCompressedBytes(false)` | `byte[]`（WZ 原始格式） |
+| 目錄結構 | `root.getWzDirectories()` / `.getWzImages()` | `List` |
+| 路徑查找 | `root.getFromPath("Cash/0526.img/info")` | `WzObject` |
+| 快取查找 | `wz.getFromPathCached("Cash/0526.img")` | `WzObject` |
+| 複製節點 | `prop.deepClone()` | `WzImageProperty` |
+| 匯出 XML | `WzXmlSerializer.serializeFile(wz, dir)` | XML 檔案 |
+| 匯入 XML | `WzXmlDeserializer.parseXml(file)` | `List<WzImageProperty>` |
+| List.wz | `WzListFile.parse("List.wz", ver)` | `List<String>` |
+
 ## 快速開始
 
 ### 加入你的專案
@@ -198,6 +224,32 @@ Java library for reading, modifying, and saving MapleStory `.wz` files. Ported f
 - **Private server** support (custom IV + custom AES UserKey)
 - **All property types**: Null, Short, Int, Long, Float, Double, String, SubProperty, Canvas, Vector, Convex, UOL, Sound, RawData, Lua, Video
 - **Zero external dependencies** (pure JDK 11+)
+
+## API Reference
+
+| What you need | How to get it | Return type |
+|--------------|---------------|-------------|
+| Image | `canvas.getPngProperty().getImage(false)` | `BufferedImage` |
+| Sound | `sound.getSoundBytes(true)` | `byte[]` (MP3/PCM) |
+| Integer | `((WzIntProperty) prop).getInt()` | `int` |
+| String | `((WzStringProperty) prop).getString()` | `String` |
+| Short | `((WzShortProperty) prop).getShort()` | `short` |
+| Long | `((WzLongProperty) prop).getLong()` | `long` |
+| Float | `((WzFloatProperty) prop).getFloat()` | `float` |
+| Double | `((WzDoubleProperty) prop).getDouble()` | `double` |
+| Coordinates | `vec.getX().getInt()`, `vec.getY().getInt()` | `int, int` |
+| UOL link | `((WzUOLProperty) prop).getUOL()` | `String` (path) |
+| Lua script | `((WzLuaProperty) prop).getString()` | `String` (decrypted) |
+| Raw data | `rawData.getBytes(true)` | `byte[]` |
+| Video data | `video.getBytes(true)` | `byte[]` |
+| Compressed PNG | `png.getCompressedBytes(false)` | `byte[]` (WZ format) |
+| Directory tree | `root.getWzDirectories()` / `.getWzImages()` | `List` |
+| Path lookup | `root.getFromPath("Cash/0526.img/info")` | `WzObject` |
+| Cached lookup | `wz.getFromPathCached("Cash/0526.img")` | `WzObject` |
+| Clone node | `prop.deepClone()` | `WzImageProperty` |
+| Export XML | `WzXmlSerializer.serializeFile(wz, dir)` | XML files |
+| Import XML | `WzXmlDeserializer.parseXml(file)` | `List<WzImageProperty>` |
+| List.wz | `WzListFile.parse("List.wz", ver)` | `List<String>` |
 
 ## Quick Start
 
