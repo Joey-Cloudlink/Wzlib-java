@@ -2,6 +2,10 @@ package wzlib.property;
 import wzlib.WzImageProperty;
 import wzlib.WzPropertyType;
 
+/**
+ * 向量座標。
+ * Vector coordinates.
+ */
 public class WzVectorProperty extends WzImageProperty {
     private WzIntProperty x;
     private WzIntProperty y;

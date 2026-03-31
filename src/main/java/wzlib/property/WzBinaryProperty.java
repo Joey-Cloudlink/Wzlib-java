@@ -6,8 +6,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
- * Ported from: MapleLib/WzLib/WzProperties/WzBinaryProperty.cs
- * Phase 3: stores metadata + raw sound bytes. Audio decoding in Phase 4.
+ * 音效資料。
+ * Sound data.
+ *
+ * <p>Ported from: MapleLib/WzLib/WzProperties/WzBinaryProperty.cs</p>
  */
 public class WzBinaryProperty extends WzImageProperty {
 
@@ -74,7 +76,9 @@ public class WzBinaryProperty extends WzImageProperty {
     @Override public Object getValue() { return fileBytes; }
     @Override public void setValue(Object value) {}
 
+    /** 取得音效資料長度（位元組）。/ Get sound data length in bytes. */
     public int getSoundDataLen() { return soundDataLen; }
+    /** 取得音效時長（毫秒）。/ Get sound duration in milliseconds. */
     public int getLenMs() { return lenMs; }
     public byte[] getHeader() { return header; }
 
@@ -106,6 +110,7 @@ public class WzBinaryProperty extends WzImageProperty {
         if (data != null) writer.writeBytes(data);
     }
 
+    /** 取得音效位元組（需要時從檔案讀取）。/ Get sound bytes (reads from file if needed). */
     public byte[] getSoundBytes(boolean saveInMemory) throws IOException {
         if (fileBytes != null) return fileBytes;
         if (wzReader == null || soundDataLen <= 0) return null;

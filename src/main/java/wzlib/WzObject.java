@@ -4,9 +4,10 @@ import java.io.Closeable;
 import java.io.IOException;
 
 /**
- * Ported from: MapleLib/WzLib/WzObject.cs
- *
+ * 所有 WZ 物件的抽象基底類別。
  * Abstract base class for all WZ objects.
+ *
+ * <p>Ported from: MapleLib/WzLib/WzObject.cs</p>
  */
 public abstract class WzObject implements Closeable {
 
@@ -15,15 +16,19 @@ public abstract class WzObject implements Closeable {
 
     public abstract WzObjectType getObjectType();
 
+    /** 取得名稱。/ Get the name. */
     public String getName() { return name; }
+    /** 設定名稱。/ Set the name. */
     public void setName(String name) { this.name = name; }
 
     public WzObject getParent() { return parent; }
     public void setParent(WzObject parent) { this.parent = parent; }
 
     /**
-     * Full path from root.
-     * Ported from: WzObject.FullPath
+     * 取得從根節點算起的完整路徑。
+     * Get the full path from the root node.
+     *
+     * <p>Ported from: WzObject.FullPath</p>
      */
     public String getFullPath() {
         if (this instanceof WzFile) {
@@ -60,6 +65,7 @@ public abstract class WzObject implements Closeable {
     }
 
     /**
+     * 依路徑導覽（例如 "dir/image.img/property"）。
      * Navigate by path (e.g. "dir/image.img/property").
      */
     public WzObject getFromPath(String path) {

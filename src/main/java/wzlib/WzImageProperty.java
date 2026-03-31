@@ -6,16 +6,23 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * WZ 圖像屬性的抽象基底類別。
+ * Abstract base class for all WZ image properties.
+ */
 public abstract class WzImageProperty extends WzObject {
 
+    /** 取得屬性型別。/ Get the property type. */
     public abstract WzPropertyType getPropertyType();
+    /** 取得屬性值。/ Get the property value. */
     public abstract Object getValue();
+    /** 設定屬性值。/ Set the property value. */
     public abstract void setValue(Object value);
 
     @Override
     public WzObjectType getObjectType() { return WzObjectType.Property; }
 
-    // Child properties for container types (SubProperty, Canvas, etc.)
+    /** 取得子屬性列表（僅容器型別有效）。/ Get child properties (only for container types). */
     public List<WzImageProperty> getProperties() { return null; }
 
     public WzImageProperty getPropertyByName(String name) {
@@ -253,7 +260,7 @@ public abstract class WzImageProperty extends WzObject {
         writer.writeBytes(data);
     }
 
-    /** Deep clone this property and all children. */
+    /** 深層複製此屬性及其所有子項。/ Deep clone this property and all children. */
     public abstract WzImageProperty deepClone();
 
     /** Override in each property subclass */

@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ported from: MapleLib/WzLib/WzDirectory.cs
+ * WZ 檔案中的目錄，可包含子目錄或 WZ 圖像。
+ * A directory in a WZ file, which may contain sub-directories or WZ images.
  *
- * A directory in the wz file, which may contain sub directories or wz images.
+ * <p>Ported from: MapleLib/WzLib/WzDirectory.cs</p>
  */
 public class WzDirectory extends WzObject {
 
@@ -54,7 +55,9 @@ public class WzDirectory extends WzObject {
 
     // ---- Properties ----
 
+    /** 取得此目錄下的所有圖像。/ Get all images in this directory. */
     public List<WzImage> getWzImages() { return images; }
+    /** 取得此目錄下的所有子目錄。/ Get all sub-directories in this directory. */
     public List<WzDirectory> getWzDirectories() { return subDirs; }
 
     public long getOffset() { return offset; }
@@ -167,7 +170,8 @@ public class WzDirectory extends WzObject {
     }
 
     /**
-     * Count total images recursively.
+     * 遞迴計算此目錄下的圖像總數。
+     * Recursively count total images under this directory.
      */
     public int countImages() {
         int count = images.size();

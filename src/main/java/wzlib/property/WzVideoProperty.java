@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ported from: MapleLib/WzLib/WzProperties/WzVideoProperty.cs
+ * 影片資料。
+ * Video data.
  *
- * KMST v1181+ Canvas#Video property — stores video data.
+ * <p>Ported from: MapleLib/WzLib/WzProperties/WzVideoProperty.cs</p>
  */
 public class WzVideoProperty extends WzImageProperty {
 

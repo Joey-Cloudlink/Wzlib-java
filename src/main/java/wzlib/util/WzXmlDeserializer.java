@@ -11,17 +11,18 @@ import java.util.Base64;
 import java.util.List;
 
 /**
- * Ported from: MapleLib/WzLib/Serializer/WzXmlDeserializer.cs
- *
+ * 從 XML 格式匯入 WZ 物件。
  * Imports WZ objects from XML format.
+ *
+ * <p>Ported from: MapleLib/WzLib/Serializer/WzXmlDeserializer.cs</p>
  */
 public final class WzXmlDeserializer {
 
     private WzXmlDeserializer() {}
 
     /**
+     * 解析 XML 檔案為 WzImageProperty 列表。
      * Parse an XML file into a list of WzImageProperty.
-     * Supports root tag: <imgdir> (classic format)
      */
     public static List<WzImageProperty> parseXml(File xmlFile) throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -49,6 +50,7 @@ public final class WzXmlDeserializer {
     }
 
     /**
+     * 解析 XML 為 WzImage 物件。
      * Parse XML into a WzImage object.
      */
     public static WzImage parseXmlImage(File xmlFile, String imageName) throws Exception {

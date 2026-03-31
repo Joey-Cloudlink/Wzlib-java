@@ -2,6 +2,10 @@ package wzlib.property;
 import wzlib.WzImageProperty;
 import wzlib.WzPropertyType;
 
+/**
+ * UOL 連結。
+ * UOL link reference.
+ */
 public class WzUOLProperty extends WzImageProperty {
     private String value; // link path
 

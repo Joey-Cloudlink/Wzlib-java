@@ -2,6 +2,10 @@ package wzlib.property;
 import wzlib.WzImageProperty;
 import wzlib.WzPropertyType;
 
+/**
+ * 空值屬性。
+ * Null property.
+ */
 public class WzNullProperty extends WzImageProperty {
     public WzNullProperty(String name) { this.name = name; }
     @Override public WzPropertyType getPropertyType() { return WzPropertyType.Null; }

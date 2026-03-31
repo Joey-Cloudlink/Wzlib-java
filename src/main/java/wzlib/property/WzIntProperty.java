@@ -2,6 +2,10 @@ package wzlib.property;
 import wzlib.WzImageProperty;
 import wzlib.WzPropertyType;
 
+/**
+ * 整數屬性。
+ * Integer property.
+ */
 public class WzIntProperty extends WzImageProperty {
     private int value;
     public WzIntProperty(String name, int value) { this.name = name; this.value = value; }

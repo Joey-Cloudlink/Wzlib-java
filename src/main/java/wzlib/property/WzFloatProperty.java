@@ -2,6 +2,10 @@ package wzlib.property;
 import wzlib.WzImageProperty;
 import wzlib.WzPropertyType;
 
+/**
+ * 浮點數屬性。
+ * Float property.
+ */
 public class WzFloatProperty extends WzImageProperty {
     private float value;
     public WzFloatProperty(String name, float value) { this.name = name; this.value = value; }

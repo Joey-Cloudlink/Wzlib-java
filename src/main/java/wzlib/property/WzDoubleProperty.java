@@ -2,6 +2,10 @@ package wzlib.property;
 import wzlib.WzImageProperty;
 import wzlib.WzPropertyType;
 
+/**
+ * 倍精度屬性。
+ * Double property.
+ */
 public class WzDoubleProperty extends WzImageProperty {
     private double value;
     public WzDoubleProperty(String name, double value) { this.name = name; this.value = value; }

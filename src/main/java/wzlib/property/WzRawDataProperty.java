@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ported from: MapleLib/WzLib/WzProperties/WzRawDataProperty.cs
+ * 原始資料。
+ * Raw binary data.
  *
- * GMS v220+ skeleton/raw binary data property.
+ * <p>Ported from: MapleLib/WzLib/WzProperties/WzRawDataProperty.cs</p>
  */
 public class WzRawDataProperty extends WzImageProperty {
 

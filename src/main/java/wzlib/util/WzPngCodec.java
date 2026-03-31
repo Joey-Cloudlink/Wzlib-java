@@ -8,23 +8,24 @@ import java.io.*;
 import java.util.zip.Inflater;
 
 /**
- * Ported from: MapleLib/WzLib/WzProperties/WzPngProperty.cs (GetRawImage, DecodeBitmap)
- *              MapleLib/Helpers/PngUtility.cs (format-specific decoders)
+ * WZ PNG 資料解碼器，將壓縮像素資料轉為 BufferedImage。
+ * WZ PNG data decoder that converts compressed pixel data into BufferedImage.
  *
- * Decodes WZ PNG data into BufferedImage.
+ * <p>Ported from: WzPngProperty.cs + PngUtility.cs</p>
  */
 public final class WzPngCodec {
 
     private WzPngCodec() {}
 
     /**
+     * 解碼壓縮 PNG 資料為 BufferedImage。
      * Decode compressed PNG bytes into a BufferedImage.
      *
-     * @param compressedData  raw compressed bytes from WzPngProperty
-     * @param width           image width
-     * @param height          image height
-     * @param format          pixel format code (1, 2, 3, 257, 513, 517, 1026, 2050)
-     * @param wzKey           WzMutableKey for listWz decryption (may be null if standard zlib)
+     * @param compressedData  壓縮位元組 / raw compressed bytes from WzPngProperty
+     * @param width           圖片寬度 / image width
+     * @param height          圖片高度 / image height
+     * @param format          像素格式代碼 / pixel format code (1, 2, 3, 257, 513, 517, 1026, 2050)
+     * @param wzKey           解密金鑰（標準 zlib 可為 null）/ WzMutableKey for decryption (may be null)
      */
     public static BufferedImage decode(byte[] compressedData, int width, int height, int format, WzMutableKey wzKey) {
         if (compressedData == null || compressedData.length < 2) return null;

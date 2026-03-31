@@ -5,6 +5,10 @@ import wzlib.WzObject;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 子屬性容器。
+ * Sub-property container.
+ */
 public class WzSubProperty extends WzImageProperty {
     private final List<WzImageProperty> properties = new ArrayList<>();
 

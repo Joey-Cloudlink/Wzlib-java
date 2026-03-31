@@ -9,9 +9,10 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Ported from: MapleLib/WzLib/WzProperties/WzLuaProperty.cs
+ * Lua 腳本。
+ * Lua script.
  *
- * A property containing an encrypted .lua script.
+ * <p>Ported from: MapleLib/WzLib/WzProperties/WzLuaProperty.cs</p>
  */
 public class WzLuaProperty extends WzImageProperty {
 
@@ -35,8 +36,8 @@ public class WzLuaProperty extends WzImageProperty {
     public byte[] getEncryptedBytes() { return encryptedBytes; }
 
     /**
-     * Decode the lua script.
-     * Ported from: WzLuaProperty.GetString()
+     * 解碼並取得 Lua 腳本字串。
+     * Decode and get the Lua script string.
      */
     public String getString() {
         byte[] decoded = encodeDecode(encryptedBytes);

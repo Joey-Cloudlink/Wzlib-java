@@ -4,6 +4,10 @@ import wzlib.WzPropertyType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Canvas 圖片屬性。
+ * Canvas image property.
+ */
 public class WzCanvasProperty extends WzImageProperty {
     private final List<WzImageProperty> properties = new ArrayList<>();
     private WzPngProperty pngProperty;

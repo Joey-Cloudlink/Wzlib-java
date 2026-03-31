@@ -2,6 +2,10 @@ package wzlib.property;
 import wzlib.WzImageProperty;
 import wzlib.WzPropertyType;
 
+/**
+ * 字串屬性。
+ * String property.
+ */
 public class WzStringProperty extends WzImageProperty {
     private String value;
     public WzStringProperty(String name, String value) { this.name = name; this.value = value; }

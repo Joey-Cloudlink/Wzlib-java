@@ -2,6 +2,10 @@ package wzlib.property;
 import wzlib.WzImageProperty;
 import wzlib.WzPropertyType;
 
+/**
+ * 長整數屬性。
+ * Long property.
+ */
 public class WzLongProperty extends WzImageProperty {
     private long value;
     public WzLongProperty(String name, long value) { this.name = name; this.value = value; }

@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 /**
+ * WZ 檔案的主要入口。
+ * Main entry point for WZ files.
+ *
  * Ported from: MapleLib/WzLib/WzFile.cs
  *
  * Main entry point for opening, parsing, and saving .wz files.
@@ -34,16 +37,23 @@ public class WzFile extends WzObject {
     // ---- Constructors (ported from C# WzFile constructors) ----
 
     /**
-     * Open a wz file with auto version detection.
-     * Ported from: WzFile(string filePath, WzMapleVersion version)
+     * 以自動偵測版本開啟 .wz。
+     * Open .wz with auto version detection.
+     *
+     * @param filePath WZ 檔案路徑 / path to the .wz file
+     * @param version  MapleStory 版本類型 / MapleStory version type
      */
     public WzFile(String filePath, WzMapleVersion version) {
         this(filePath, (short) -1, version);
     }
 
     /**
-     * Open a wz file with known game version.
-     * Ported from: WzFile(string filePath, short gameVersion, WzMapleVersion version)
+     * 以指定版本開啟 .wz。
+     * Open .wz with known game version.
+     *
+     * @param filePath    WZ 檔案路徑 / path to the .wz file
+     * @param gameVersion 遊戲版本號 / game patch version number
+     * @param version     MapleStory 版本類型 / MapleStory version type
      */
     public WzFile(String filePath, short gameVersion, WzMapleVersion version) {
         this.filePath = new File(filePath);
@@ -73,8 +83,11 @@ public class WzFile extends WzObject {
     }
 
     /**
-     * Open a wz file with a custom IV (for private servers).
-     * Ported from: WzFile(string filePath, byte[] wzIv)
+     * 以自定義 IV 開啟（私服用）。
+     * Open with custom IV (private server).
+     *
+     * @param filePath    WZ 檔案路徑 / path to the .wz file
+     * @param customWzIv  自定義初始化向量 / custom initialization vector
      */
     public WzFile(String filePath, byte[] customWzIv) {
         this.filePath = new File(filePath);
@@ -102,10 +115,15 @@ public class WzFile extends WzObject {
         return WzObjectType.File;
     }
 
+    /** 取得根目錄。/ Get root directory. */
     public WzDirectory getRoot() { return wzDir; }
+    /** 取得檔案標頭。/ Get file header. */
     public WzHeader getHeader() { return header; }
+    /** 取得偵測到的版本號。/ Get detected version number. */
     public short getVersion() { return mapleStoryPatchVersion; }
+    /** 是否為 64-bit WZ 格式。/ Whether this is a 64-bit WZ format. */
     public boolean is64BitWzFile() { return !wz_withEncryptVersionHeader; }
+    /** 取得檔案路徑。/ Get file path. */
     public String getFilePath() { return filePath.getAbsolutePath(); }
 
     @Override
@@ -116,8 +134,11 @@ public class WzFile extends WzObject {
     private final java.util.Map<String, WzObject> pathCache = new java.util.concurrent.ConcurrentHashMap<>();
 
     /**
-     * Get an object by path with caching.
-     * Ported from: WzFile._pathCache usage
+     * 以路徑快取查找物件。
+     * Lookup object by path with caching.
+     *
+     * @param path 從根目錄開始的路徑 / path from root
+     * @return 找到的物件或 null / the object found, or null
      */
     public WzObject getFromPathCached(String path) {
         return pathCache.computeIfAbsent(path, p -> {
@@ -126,7 +147,10 @@ public class WzFile extends WzObject {
         });
     }
 
-    /** Clear the path cache (call after modifications). */
+    /**
+     * 清除路徑快取（修改後應呼叫）。
+     * Clear path cache (call after modifications).
+     */
     public void clearPathCache() {
         pathCache.clear();
     }

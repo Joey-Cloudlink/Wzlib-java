@@ -2,6 +2,10 @@ package wzlib.property;
 import wzlib.WzImageProperty;
 import wzlib.WzPropertyType;
 
+/**
+ * 短整數屬性。
+ * Short property.
+ */
 public class WzShortProperty extends WzImageProperty {
     private short value;
     public WzShortProperty(String name, short value) { this.name = name; this.value = value; }

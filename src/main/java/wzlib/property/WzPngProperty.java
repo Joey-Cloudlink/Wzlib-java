@@ -7,8 +7,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * Ported from: MapleLib/WzLib/WzProperties/WzPngProperty.cs
- * Phase 3: stores metadata + raw compressed bytes. Image decoding in Phase 4.
+ * PNG 圖片資料，儲存壓縮像素與中繼資料。
+ * PNG image data, stores compressed pixels and metadata.
+ *
+ * <p>Ported from: MapleLib/WzLib/WzProperties/WzPngProperty.cs</p>
  */
 public class WzPngProperty extends WzImageProperty {
     private int width;
@@ -59,8 +61,8 @@ public class WzPngProperty extends WzImageProperty {
     @Override public void setValue(Object value) {}
 
     /**
+     * 解碼 PNG 資料為 BufferedImage。
      * Decode the PNG data into a BufferedImage.
-     * Ported from: WzPngProperty.GetImage()
      */
     public BufferedImage getImage(boolean saveInMemory) {
         try {
@@ -73,7 +75,9 @@ public class WzPngProperty extends WzImageProperty {
         }
     }
 
+    /** 取得圖片寬度。/ Get image width. */
     public int getWidth() { return width; }
+    /** 取得圖片高度。/ Get image height. */
     public int getHeight() { return height; }
     public int getFormat() { return format; }
 

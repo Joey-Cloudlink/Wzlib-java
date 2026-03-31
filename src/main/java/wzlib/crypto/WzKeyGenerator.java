@@ -1,17 +1,18 @@
 package wzlib.crypto;
 
 /**
- * Ported from: MapleLib/WzLib/Util/WzKeyGenerator.cs
+ * WZ 金鑰產生器，從 IV 與 UserKey 產生 AES 解密金鑰。
+ * WZ key generator that produces AES decryption keys from IV and UserKey.
+ *
+ * <p>Ported from: MapleLib/WzLib/Util/WzKeyGenerator.cs</p>
  */
 public final class WzKeyGenerator {
 
     private WzKeyGenerator() {}
 
     /**
-     * Generate a WzMutableKey from IV bytes.
-     * Uses the ACTIVE UserKey (which may be custom for private servers).
-     * Ported from: WzKeyGenerator.GenerateWzKey(byte[] WzIv)
-     * C#: new WzMutableKey(WzIv, MapleCryptoConstants.GetTrimmedUserKey(ref MapleCryptoConstants.UserKey_WzLib));
+     * 從 IV 產生 WZ 金鑰（使用目前作用中的 UserKey）。
+     * Generate a WZ key from IV bytes (uses the active UserKey).
      */
     public static WzMutableKey generateWzKey(byte[] wzIv) {
         byte[] trimmedKey = WzCryptoConstants.getTrimmedUserKey(WzCryptoConstants.getActiveUserKey());
@@ -19,8 +20,8 @@ public final class WzKeyGenerator {
     }
 
     /**
-     * Generate a WzMutableKey from IV bytes and a custom 128-byte AES UserKey.
-     * Ported from: WzKeyGenerator.GenerateWzKey(byte[] WzIv, byte[] AesUserKey)
+     * 從 IV 與自訂 128-byte UserKey 產生 WZ 金鑰。
+     * Generate a WZ key from IV bytes and a custom 128-byte AES UserKey.
      */
     public static WzMutableKey generateWzKey(byte[] wzIv, byte[] aesUserKey) {
         if (aesUserKey.length != 128) {

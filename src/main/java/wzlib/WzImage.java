@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ported from: MapleLib/WzLib/WzImage.cs
+ * WZ 檔案中的圖像節點，包含屬性列表。
+ * An image node in a WZ file, containing a list of properties.
+ *
+ * <p>Ported from: MapleLib/WzLib/WzImage.cs</p>
  */
 public class WzImage extends WzObject {
 
@@ -56,12 +59,16 @@ public class WzImage extends WzObject {
     public int getChecksum() { return checksum; }
     public void setChecksum(int checksum) { this.checksum = checksum; }
 
+    /** 是否已修改。/ Whether this image has been modified. */
     public boolean isChanged() { return changed; }
+    /** 設定修改旗標。/ Set the changed flag. */
     public void setChanged(boolean changed) { this.changed = changed; }
 
     /**
-     * Parse image properties.
-     * Ported from: WzImage.ParseImage()
+     * 解析圖像屬性（延遲載入時首次存取時呼叫）。
+     * Parse image properties (called on first access when lazy-loaded).
+     *
+     * <p>Ported from: WzImage.ParseImage()</p>
      */
     public synchronized void parseImage() throws IOException {
         if (parsed) return;
@@ -104,6 +111,7 @@ public class WzImage extends WzObject {
         }
     }
 
+    /** 取得屬性列表（未解析時自動解析）。/ Get property list (auto-parses if needed). */
     public List<WzImageProperty> getProperties() {
         if (!parsed && reader != null) {
             try {

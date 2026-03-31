@@ -1,7 +1,10 @@
 package wzlib;
 
 /**
- * Ported from: MapleLib/WzLib/WzHeader.cs
+ * WZ 檔案標頭，包含識別碼、大小與版權資訊。
+ * WZ file header containing identifier, size, and copyright info.
+ *
+ * <p>Ported from: MapleLib/WzLib/WzHeader.cs</p>
  */
 public class WzHeader {
 

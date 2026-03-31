@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ported from: MapleLib/WzLib/WzListFile.cs (ListFileParser)
+ * List.wz 檔案的解析與寫入工具 — 儲存 WZ 路徑字串清單的特殊格式。
+ * Parser and writer for List.wz files — a special format storing WZ path strings.
  *
- * Parses and writes List.wz files — a special format containing
- * a list of WZ file path strings (not the standard PKG1 WZ format).
+ * <p>Ported from: MapleLib/WzLib/WzListFile.cs (ListFileParser)</p>
  */
 public final class WzListFile {
 
     private WzListFile() {}
 
     /**
+     * 解析 List.wz 檔案為路徑字串清單。
      * Parse a List.wz file into a list of path strings.
-     * Ported from: ListFileParser.ParseListFile(string, WzMapleVersion)
      */
     public static List<String> parse(String filePath, WzMapleVersion version) throws IOException {
         return parse(filePath, WzTool.getIvByMapleVersion(version));
@@ -79,8 +79,8 @@ public final class WzListFile {
     }
 
     /**
+     * 將路徑字串清單儲存為 List.wz 檔案。
      * Save a list of path strings to a List.wz file.
-     * Ported from: ListFileParser.SaveToDisk(string, byte[], List<string>)
      */
     public static void save(String outputPath, WzMapleVersion version, List<String> entries) throws IOException {
         save(outputPath, WzTool.getIvByMapleVersion(version), entries);
@@ -120,8 +120,8 @@ public final class WzListFile {
     }
 
     /**
+     * 檢查檔案是否為 List.wz 格式（非標準 PKG1 格式）。
      * Check if a file is a List.wz (not standard PKG1 format).
-     * Ported from: WzTool.IsListFile()
      */
     public static boolean isListFile(String filePath) throws IOException {
         try (RandomAccessFile raf = new RandomAccessFile(filePath, "r")) {

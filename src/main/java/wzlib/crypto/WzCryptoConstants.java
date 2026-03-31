@@ -1,11 +1,10 @@
 package wzlib.crypto;
 
 /**
- * Ported from:
- *   MapleLib/WzLib/WzAESConstant.cs
- *   MapleLib/MapleCryptoLib/MapleCryptoConstants.cs
+ * WZ 加密常數與 AES UserKey 管理。
+ * WZ encryption constants and AES UserKey management.
  *
- * All constants copied verbatim from C# source.
+ * <p>Ported from: WzAESConstant.cs + MapleCryptoConstants.cs</p>
  */
 public final class WzCryptoConstants {
 
@@ -56,8 +55,8 @@ public final class WzCryptoConstants {
     }
 
     /**
-     * Set a custom UserKey for private servers.
-     * Ported from: C# setting MapleCryptoConstants.UserKey_WzLib
+     * 設定自訂 UserKey（私服用，需 128 bytes）。
+     * Set a custom UserKey for private servers (128 bytes required).
      */
     public static void setActiveUserKey(byte[] customUserKey) {
         if (customUserKey.length != 128) {
@@ -66,12 +65,12 @@ public final class WzCryptoConstants {
         activeUserKey = customUserKey.clone();
     }
 
-    /** Reset to default MapleStory UserKey. */
+    /** 重設為預設 MapleStory UserKey。/ Reset to default MapleStory UserKey. */
     public static void resetActiveUserKey() {
         activeUserKey = MAPLESTORY_USERKEY_DEFAULT.clone();
     }
 
-    /** Check if the active UserKey is the default one. */
+    /** 檢查目前使用的 UserKey 是否為預設值。/ Check if the active UserKey is the default one. */
     public static boolean isDefaultUserKey() {
         return java.util.Arrays.equals(activeUserKey, MAPLESTORY_USERKEY_DEFAULT);
     }

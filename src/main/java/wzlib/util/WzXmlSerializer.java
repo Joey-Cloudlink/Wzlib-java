@@ -9,17 +9,18 @@ import java.util.Base64;
 import java.util.List;
 
 /**
- * Ported from: MapleLib/WzLib/Serializer/WzSerializer.cs (WritePropertyToXML)
- *              MapleLib/WzLib/Serializer/WzClassicXmlSerializer.cs
- *
+ * 將 WZ 物件匯出為 XML 格式。
  * Exports WZ objects to XML format.
+ *
+ * <p>Ported from: WzSerializer.cs + WzClassicXmlSerializer.cs</p>
  */
 public final class WzXmlSerializer {
 
     private WzXmlSerializer() {}
 
     /**
-     * Export a WzImage to XML file.
+     * 匯出 WzImage 為 XML 檔案。
+     * Export a WzImage to an XML file.
      */
     public static void serializeImage(WzImage image, File outputFile) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(
@@ -64,7 +65,8 @@ public final class WzXmlSerializer {
     }
 
     /**
-     * Export entire WzFile.
+     * 匯出整個 WzFile 到指定目錄。
+     * Export an entire WzFile to the specified directory.
      */
     public static void serializeFile(WzFile wzFile, File outputDir) throws IOException {
         serializeDirectory(wzFile.getRoot(), outputDir);

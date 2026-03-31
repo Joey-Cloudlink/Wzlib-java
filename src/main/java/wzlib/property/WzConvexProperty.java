@@ -4,6 +4,10 @@ import wzlib.WzPropertyType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 凸面形狀。
+ * Convex shape.
+ */
 public class WzConvexProperty extends WzImageProperty {
     private final List<WzImageProperty> properties = new ArrayList<>();
 
