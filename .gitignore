@@ -1,0 +1,20 @@
+# Build output
+target/
+*.class
+*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test output
+*.TEMP
